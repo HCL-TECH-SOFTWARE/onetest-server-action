@@ -1,0 +1,23 @@
+name: HCL OneTest Server
+
+on: workflow_dispatch
+
+jobs:
+    OTS-Action:
+        runs-on: self-hosted
+        name: HCL OneTest Server
+        steps:
+         - name: Execute Test
+           uses: anuraag-k/ServerAction@main
+           with:
+            serverUrl: 
+            offlineToken: 
+            teamspace: 
+            project: 
+            branch: 
+            assetId: 
+            environment: 
+            datasets:
+            labels: 
+            secretsCollection: 
+            variables: 
