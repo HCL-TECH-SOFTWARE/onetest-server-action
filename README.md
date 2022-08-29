@@ -22,7 +22,7 @@ jobs:
         name: HCL OneTest Server
         steps:
          - name: Execute Test
-           uses: anuraag-k/ServerAction@main
+           uses: HCL-TECH-SOFTWARE/ServerAction@main
            with:
             serverUrl: 
             offlineToken: 
