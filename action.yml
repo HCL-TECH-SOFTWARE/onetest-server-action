@@ -1,20 +1,20 @@
-name: 'Server GitHub Action'
-description: 'Execute OTS Test from GitHub Action'
+name: 'HCL OneTest Server GitHub Action'
+description: 'Execute OneTest Server hosted tests from GitHub Action workflows'
 inputs:
   serverUrl:
     description: 'HCL OneTest Server URL'
     required: true
   offlineToken:
-    description: 'HCL OneTest Server OfflineToken'
+    description: 'HCL OneTest Server Offline Token'
     required: true
   teamspace:
-    description: 'Team Space name of the project.'
+    description: 'Team Space name'
     required: true
   project:
-    description: 'Project name of the test.'
+    description: 'Project name'
     required: true
   branch:
-    description: 'Branch name corresponding to the test.'
+    description: 'Branch name in which the test exists'
     required: true
   assetId:
     description: 'AssetId of the test in HCL OneTest Server.'
