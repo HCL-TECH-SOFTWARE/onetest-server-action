@@ -50,7 +50,7 @@ jobs:
 
 ### Required Parameters
 
-- **serverUrl ** URL of the HCL OneTest Server where the tests are located. URL should be of the format - https://hostname
+- **serverUrl** URL of the HCL OneTest Server where the tests are located. URL should be of the format - https://hostname
 - **offlineToken** The offline user token for the corresponding HCL OneTest Server
 - **teamspace** Team Space when the project is based.
 - **project** Project name where the test is.
