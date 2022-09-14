@@ -32,18 +32,12 @@ jobs:
          - name: Execute Test
            uses: HCL-TECH-SOFTWARE/onetest-server-action@main
            with:
-            serverUrl: 
-            offlineToken: 
-            teamspace: 
-            project: 
-            branch: 
-            assetId: 
-            environment: 
-            datasets:
-            labels: 
-            secretsCollection:
-            variables:
-
+            serverUrl: <https://myserver>
+            offlineToken: <xxxxx>
+            teamspace: <MyTeam>
+            project: <MyProject>
+            branch: <main>
+            assetId: <yyyyyyy>
 ```
 
 3. Update the parameterized items to refer to your server, project and tests (see parameter details below).
@@ -58,17 +52,17 @@ jobs:
 
 - **serverUrl ** URL of the HCL OneTest Server where the tests are located. URL should be of the format - https://hostname
 - **offlineToken** The offline user token for the corresponding HCL OneTest Server
-- **teamspace** Team Space name of the project.
-- **project** Project name of the test.
-- **branch** Project name of the test.
+- **teamspace** Team Space when the project is based.
+- **project** Project name where the test is.
+- **branch** Name of the Git branch where the test is.
 - **assetId** AssetId of the test file in HCL OneTest Server.
 
 ### Optional Parameters
 
-- **environment** Test environment corresponding to the test. Mandatory to input the value if you want to run API test.
+- **environment** Test environment corresponding to the test. Mandatory to input the value if you want to run API tests.
 - **datasets** Semicolon (;) delimited list of source:replacement datasets for the job to run. For example, dataset1:dataset2;dataset3:dataset4
 - **labels** Labels to add to test results when the test run is complete. You can add multiple labels to a test result separated by a comma. For example, label1, label2.
-- **secretsCollection** Secrets collection name for the job to run.
+- **secretsCollection** Secrets collection name if the test uses them.
 - **variables** Variables corresponding to the test. The format is name_of_the_variable=value_of_the_variable. You can add multiple variables to the test run separated by a semicolon.
 
 ## Troubleshooting

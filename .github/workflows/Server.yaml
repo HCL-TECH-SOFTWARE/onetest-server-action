@@ -8,7 +8,7 @@ jobs:
         name: HCL OneTest Server
         steps:
          - name: Execute Test
-           uses: HCL-TECH-SOFTWARE/ServerAction@main
+           uses: HCL-TECH-SOFTWARE/onetest-server-action@main
            with:
             serverUrl: 
             offlineToken: 
