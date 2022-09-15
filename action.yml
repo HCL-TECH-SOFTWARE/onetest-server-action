@@ -1,5 +1,5 @@
 name: 'HCL OneTest Server GitHub Action'
-description: 'Execute OneTest Server hosted tests from GitHub Action workflows'
+description: 'Execute HCL OneTest Server hosted tests from GitHub Actions workflows.'
 branding:
   icon: 'check-square'
   color: 'purple'
