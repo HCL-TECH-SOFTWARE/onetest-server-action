@@ -1,5 +1,8 @@
 name: 'HCL OneTest Server GitHub Action'
 description: 'Execute OneTest Server hosted tests from GitHub Action workflows'
+branding:
+  icon: 'check-square'
+  color: 'purple'
 inputs:
   serverUrl:
     description: 'HCL OneTest Server URL'
