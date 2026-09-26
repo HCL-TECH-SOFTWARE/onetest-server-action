@@ -12733,6 +12733,7 @@ const asset = {
     datasets: '',
     tags: '',
     secretsCollection: '',
+    resultProperties: '',
     startDate: '',
     projectId: '',
     teamspaceId: '',
@@ -12879,6 +12880,13 @@ const asset = {
         return this.secretsCollection;
     },
 
+    set setResultProperties(resultProperties) {
+        this.resultProperties = resultProperties;
+    },
+    get getResultProperties() {
+        return this.resultProperties;
+    },
+
     set setStartDate(startDate) {
         this.startDate = startDate;
     },
@@ -12919,6 +12927,8 @@ const main = async () => {
         asset.setTags = tags;
 		const secretsCollection = core.getInput('secretsCollection', { required: false });
         asset.setSecretsCollection = secretsCollection;
+		const resultProperties = core.getInput('resultProperties', { required: false });
+        asset.setResultProperties = resultProperties;
 
         await serverSSLCheck(serverStore);
 
@@ -13343,6 +13353,20 @@ async function startJobExecution(serverStore, asset) {
     if (asset.getSecretsCollection) {
         await getSecretCollectionId(serverStore, asset);
         AssetParameters["secretsCollection"] = secretsCollectionId;
+    }
+
+    if (asset.getResultProperties) {
+        var resPropObject = {};
+        var resPropsArray = asset.getResultProperties.split(';');
+        for (var i = 0; i < resPropsArray.length; i++) {
+            var keyValue = resPropsArray[i].split('=', 2);
+            if (keyValue.length == 2) {
+                resPropObject["result.property." + keyValue[0].trim()] = keyValue[1].trim();
+            }
+        }
+        var advancedObject = {};
+        advancedObject["configuration"] = resPropObject;
+        AssetParameters["advancedSettings"] = advancedObject;
     }
 
     await accessTokenGen(serverStore);
