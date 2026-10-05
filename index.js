@@ -682,14 +682,22 @@ async function startJobExecution(serverStore, asset) {
         var resPropObject = {};
         var resPropsArray = asset.getResultProperties.split(';');
         for (var i = 0; i < resPropsArray.length; i++) {
-            var keyValue = resPropsArray[i].split('=', 2);
-            if (keyValue.length == 2) {
-                resPropObject["result.property." + keyValue[0].trim()] = keyValue[1].trim();
+            var resProp = resPropsArray[i];
+            if (!resProp) {
+                continue;
+            }
+            var keyValue = resProp.split('=', 2);
+            var key = keyValue[0] ? keyValue[0].trim() : '';
+            var value = keyValue.length > 1 ? keyValue[1] : undefined;
+            if (key && value !== undefined) {
+                resPropObject["result.property." + key] = value;
             }
         }
-        var advancedObject = {};
-        advancedObject["configuration"] = resPropObject;
-        AssetParameters["advancedSettings"] = advancedObject;
+        if (Object.keys(resPropObject).length > 0) {
+            var advancedObject = {};
+            advancedObject["configuration"] = resPropObject;
+            AssetParameters["advancedSettings"] = advancedObject;
+        }
     }
 
     await accessTokenGen(serverStore);
