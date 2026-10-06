@@ -688,8 +688,8 @@ async function startJobExecution(serverStore, asset) {
             }
             var keyValue = resProp.split('=', 2);
             var key = keyValue[0] ? keyValue[0].trim() : '';
-            var value = keyValue.length > 1 ? keyValue[1] : undefined;
-            if (key && value !== undefined) {
+            var value = keyValue.length > 1 ? keyValue[1].trim() : undefined;
+            if (key && value !== undefined && value !== '') {
                 resPropObject["result.property." + key] = value;
             }
         }
